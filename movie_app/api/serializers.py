@@ -10,14 +10,14 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = Review
         fields = '__all__'
 
-class VisualContentSerializer(serializers.ModelSerializer)
+class VisualContentSerializer(serializers.ModelSerializer):
     platform = serializers.CharField(source = 'platform.name')
 
     class meta:
         model = VisualContent
         fields = '__all__'
 
-class StreamPlatformSerializer(serializers.ModelSerializer)
+class StreamPlatformSerializer(serializers.ModelSerializer):
     visual_content = VisualContentSerializer(many = True, read_only = True)
 
     class Meta:
